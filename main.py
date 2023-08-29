@@ -3,10 +3,16 @@
 import argparse
 import os
 
-stdin = lambda: input("Program requires input: ")[0]
-stdout = lambda *args: print(*args, end="")
-array_size = 30000
 
+def inp():
+    inp = input("Program requires input: ")
+    if inp:
+        return ord(inp[0])
+    return 0
+
+
+stdin = inp
+stdout = lambda *args: print(*args, end="")
 
 DEBUG = False
 
@@ -78,8 +84,6 @@ def runbf(code, array):
 
     for cmd in commands:
         run_command(cmd, pointer, array)
-
-    print("\n")
 
 
 def main():
